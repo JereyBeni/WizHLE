@@ -14,6 +14,20 @@
 - **64HLE**: dedicated support for 64-bit applications (AArch64 / x86_64)
 - Integrated **APK installer** for sideloading Android applications
 
+## TouchWiz UI Prototype (current)
+
+A basic graphical user interface approximating a classic TouchWiz home screen is already implemented using `egui` / `eframe`.
+
+Features of the prototype:
+
+- Home screen with application icons
+- Application Drawer
+- Settings and About screens
+- Simple navigation dock
+- Selection of applications and options (visual only)
+
+This UI serves as the front-end for selecting apps and options while the actual emulation layers remain unimplemented.
+
 ## Supported architectures (planned)
 
 | Architecture              | Status  | Notes                                          |
@@ -73,17 +87,21 @@ WizHLE/
     └── architecture.md
 ```
 
-## Building
+## Building and running the UI
 
 ```bash
-cargo build
+git clone https://github.com/JereyBeni/WizHLE.git
+cd WizHLE
 cargo run
 ```
+
+A window with a phone-like aspect ratio will open, showing the TouchWiz-style interface.
 
 ## Current status
 
 - Basic project skeleton
-- Placeholder modules for CPU (ARM / x86), memory, graphics, input and TouchWiz layer
+- **TouchWiz UI prototype** (home screen, app drawer, settings) implemented with egui
+- Placeholder modules for CPU (ARM / x86), memory, graphics and input
 - 64HLE and APK installer documented as planned components (no code yet)
 - No functional emulation yet
 
