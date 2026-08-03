@@ -3,6 +3,8 @@
 //! In a real HLE emulator this would handle guest physical/virtual memory,
 //! page tables, and mappings used by the Android runtime and TouchWiz services.
 
+#![allow(dead_code)]
+
 pub struct MemoryManager {
     pub size: usize,
 }
