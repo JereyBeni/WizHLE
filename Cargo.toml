@@ -8,9 +8,10 @@ license = "MIT"
 repository = "https://github.com/JereyBeni/WizHLE"
 
 [dependencies]
-# Future dependencies will be added here (e.g. for graphics, logging, etc.)
 log = "0.4"
 env_logger = "0.11"
+eframe = "0.29"
+egui = "0.29"
 
 [profile.release]
 lto = true
