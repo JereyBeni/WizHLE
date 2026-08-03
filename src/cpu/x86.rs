@@ -3,6 +3,8 @@
 //! Intended for secondary architecture support. A real implementation would
 //! handle x86 instruction sets and Android x86 system images.
 
+#![allow(dead_code)]
+
 pub struct X86Core {
     // Placeholder for general-purpose registers, flags, etc.
 }
