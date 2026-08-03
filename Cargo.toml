@@ -1,0 +1,17 @@
+[package]
+name = "wizhle"
+version = "0.1.0"
+edition = "2021"
+authors = ["JereyBeni"]
+description = "Experimental High-Level Emulator (HLE) for Samsung TouchWiz Android UI"
+license = "MIT"
+repository = "https://github.com/JereyBeni/WizHLE"
+
+[dependencies]
+# Future dependencies will be added here (e.g. for graphics, logging, etc.)
+log = "0.4"
+env_logger = "0.11"
+
+[profile.release]
+lto = true
+codegen-units = 1
