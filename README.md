@@ -63,31 +63,28 @@ WizHLE is planned to include a built-in APK installer that will allow users to s
 | **WinHLE**    | Windows XP / 7 applications on Windows 10/11     | [WinHLE](https://github.com/JereyBeni/WinHLE) |
 | **TVHLE**     | Android TV on Windows 10/11                      | [TVHLE](https://github.com/JereyBeni/TVHLE) |
 
-## Project structure
+## Development with GitHub Codespaces
 
-```
-WizHLE/
-├── Cargo.toml
-├── README.md
-├── src/
-│   ├── main.rs
-│   ├── cpu/
-│   │   ├── mod.rs
-│   │   ├── arm.rs
-│   │   └── x86.rs
-│   ├── memory/
-│   │   └── mod.rs
-│   ├── graphics/
-│   │   └── mod.rs
-│   ├── input/
-│   │   └── mod.rs
-│   └── touchwiz/
-│       └── mod.rs
-└── docs/
-    └── architecture.md
+A Dev Container configuration is included. You can open the project directly in a cloud development environment:
+
+1. Go to the repository: https://github.com/JereyBeni/WizHLE
+2. Click the green **Code** button → **Codespaces** → **Create codespace on main**
+3. Wait for the container to finish building (Rust and recommended extensions will be ready)
+4. In the terminal inside Codespaces run:
+
+```bash
+cargo run
 ```
 
-## Building and running the UI
+or for a release build:
+
+```bash
+cargo build --release
+```
+
+**Note:** Codespaces runs on Linux. The binary produced will be a Linux executable, not a Windows `.exe`. Graphical applications may require additional configuration (or use of a virtual display) depending on the Codespace setup.
+
+## Building and running the UI (local)
 
 ```bash
 git clone https://github.com/JereyBeni/WizHLE.git
@@ -97,12 +94,15 @@ cargo run
 
 A window with a phone-like aspect ratio will open, showing the TouchWiz-style interface.
 
+On Windows the release binary will be located at `target\release\wizhle.exe`.
+
 ## Current status
 
 - Basic project skeleton
 - **TouchWiz UI prototype** (home screen, app drawer, settings) implemented with egui
 - Placeholder modules for CPU (ARM / x86), memory, graphics and input
 - 64HLE and APK installer documented as planned components (no code yet)
+- Dev Container configuration for GitHub Codespaces included
 - No functional emulation yet
 
 ## Disclaimer
