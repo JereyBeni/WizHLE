@@ -11,13 +11,29 @@
 - Support for ARM and x86 guest architectures
 - Written primarily in Rust for memory safety and performance
 - Modular design: CPU core, memory management, graphics abstraction, input, and TouchWiz-specific UI layer
+- **64HLE**: dedicated support for 64-bit applications (AArch64 / x86_64)
 
 ## Supported architectures (planned)
 
 | Architecture              | Status  | Notes                                          |
 |---------------------------|---------|------------------------------------------------|
-| ARM (AArch32 / AArch64)   | Planned | Primary target for classic Samsung devices     |
-| x86 / x86_64              | Planned | Secondary target for broader compatibility     |
+| ARM (AArch32)             | Planned | Classic 32-bit Samsung devices                 |
+| ARM (AArch64)             | Planned | Primary 64-bit target (via 64HLE)              |
+| x86                       | Planned | 32-bit compatibility                           |
+| x86_64                    | Planned | 64-bit target (via 64HLE)                      |
+
+## 64HLE (planned)
+
+**64HLE** is the planned subsystem dedicated to the correct execution and high-level emulation of **64-bit applications**.
+
+Its main responsibilities will include:
+
+- Proper handling of 64-bit address spaces and register sets (AArch64 / x86_64)
+- Support for 64-bit Android ABIs and system libraries
+- Compatibility layer for 64-bit native code used by modern TouchWiz / One UI era applications
+- Integration with the main WizHLE core while keeping 32-bit and 64-bit paths clearly separated where necessary
+
+64HLE is currently in the planning stage and has no implementation yet.
 
 ## Project structure
 
@@ -54,6 +70,7 @@ cargo run
 
 - Basic project skeleton
 - Placeholder modules for CPU (ARM / x86), memory, graphics, input and TouchWiz layer
+- 64HLE documented as a planned component (no code yet)
 - No functional emulation yet
 
 ## Disclaimer
@@ -62,4 +79,4 @@ This project is for educational and research purposes only. Samsung TouchWiz is 
 
 ## License
 
-MIT License (planned).
+MIT License.
