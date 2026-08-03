@@ -16,6 +16,7 @@ WizHLE aims to use a **High-Level Emulation (HLE)** approach rather than full Lo
    - Guest physical memory allocation
    - Simple virtual memory mapping (later page tables / MMU)
    - Shared memory regions for graphics and IPC
+   - Explicit support for both 32-bit and 64-bit address spaces
 
 3. **Graphics** (`src/graphics/`)
    - High-level rendering of TouchWiz UI elements
@@ -32,6 +33,13 @@ WizHLE aims to use a **High-Level Emulation (HLE)** approach rather than full Lo
    - Notification panel and quick settings behavior
    - Samsung-specific services (when reverse-engineered and legally permissible)
 
+6. **64HLE** (planned subsystem)
+   - Dedicated high-level support for **64-bit applications**
+   - Targets AArch64 and x86_64 ABIs
+   - Handles 64-bit register sets, larger address spaces and 64-bit native libraries
+   - Keeps a clear separation from 32-bit execution paths where required
+   - Intended to improve compatibility with applications from the later TouchWiz and early One UI eras that rely on 64-bit code
+
 ## Current limitations
 
 - No instruction execution
@@ -39,5 +47,6 @@ WizHLE aims to use a **High-Level Emulation (HLE)** approach rather than full Lo
 - No graphics output
 - No input handling beyond stubs
 - No TouchWiz functionality
+- 64HLE is documented but not yet implemented
 
 This document will be expanded as the project progresses.
