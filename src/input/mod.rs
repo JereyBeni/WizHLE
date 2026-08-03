@@ -3,6 +3,8 @@
 //! Will eventually map host keyboard/mouse/touch events to Android input events
 //! expected by TouchWiz and the Android framework.
 
+#![allow(dead_code)]
+
 pub struct InputHandler {
     // Future: event queue, key mappings, touch state
 }
