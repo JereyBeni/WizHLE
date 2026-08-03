@@ -4,23 +4,45 @@ mod graphics;
 mod input;
 mod touchwiz;
 
+use eframe::egui;
 use log::{info, LevelFilter};
 
-fn main() {
+struct WizHleApp {
+    touchwiz: touchwiz::TouchWizLayer,
+}
+
+impl WizHleApp {
+    fn new(_cc: &eframe::CreationContext<'_>) -> Self {
+        Self {
+            touchwiz: touchwiz::TouchWizLayer::new(),
+        }
+    }
+}
+
+impl eframe::App for WizHleApp {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        self.touchwiz.ui(ctx);
+    }
+}
+
+fn main() -> eframe::Result<()> {
     env_logger::Builder::new()
         .filter_level(LevelFilter::Info)
         .init();
 
     info!("WizHLE - Experimental TouchWiz High-Level Emulator");
-    info!("Architecture support: ARM and x86 (planned)");
-    info!("This is currently a non-functional skeleton project.");
+    info!("Starting TouchWiz UI prototype");
 
-    // Placeholder: initialize subsystems
-    let _cpu = cpu::CpuCore::new(cpu::Architecture::Arm);
-    let _mem = memory::MemoryManager::new(512 * 1024 * 1024); // 512 MB placeholder
-    let _gfx = graphics::GraphicsBackend::new();
-    let _input = input::InputHandler::new();
-    let _tw = touchwiz::TouchWizLayer::new();
+    let options = eframe::NativeOptions {
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([420.0, 780.0])   // Phone-like aspect ratio
+            .with_title("WizHLE – TouchWiz"),
+        ..Default::default()
+    };
 
-    info!("Skeleton initialized. No real emulation is performed yet.");
+    eframe::run_native(
+        "WizHLE",
+        options,
+        Box::new(|cc| Ok(Box::new(WizHleApp::new(cc)))),
+    )
 }
