@@ -12,6 +12,7 @@
 - Written primarily in Rust for memory safety and performance
 - Modular design: CPU core, memory management, graphics abstraction, input, and TouchWiz-specific UI layer
 - **64HLE**: dedicated support for 64-bit applications (AArch64 / x86_64)
+- Integrated **APK installer** for sideloading Android applications
 
 ## Supported architectures (planned)
 
@@ -34,6 +35,19 @@ Its main responsibilities will include:
 - Integration with the main WizHLE core while keeping 32-bit and 64-bit paths clearly separated where necessary
 
 64HLE is currently in the planning stage and has no implementation yet.
+
+## APK Installer (planned)
+
+WizHLE is planned to include a built-in APK installer that will allow users to sideload Android application packages into the emulated environment.
+
+## Related projects (HLE family)
+
+| Project       | Description                                      | Repository                              |
+|---------------|--------------------------------------------------|-----------------------------------------|
+| **WizHLE**    | Samsung TouchWiz + APK installer                 | [WizHLE](https://github.com/JereyBeni/WizHLE) |
+| **DesktopHLE**| macOS applications on Windows                    | [DesktopHLE](https://github.com/JereyBeni/DesktopHLE) |
+| **WinHLE**    | Windows XP / 7 applications on Windows 10/11     | [WinHLE](https://github.com/JereyBeni/WinHLE) |
+| **TVHLE**     | Android TV on Windows 10/11                      | [TVHLE](https://github.com/JereyBeni/TVHLE) |
 
 ## Project structure
 
@@ -70,7 +84,7 @@ cargo run
 
 - Basic project skeleton
 - Placeholder modules for CPU (ARM / x86), memory, graphics, input and TouchWiz layer
-- 64HLE documented as a planned component (no code yet)
+- 64HLE and APK installer documented as planned components (no code yet)
 - No functional emulation yet
 
 ## Disclaimer
