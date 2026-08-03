@@ -3,6 +3,8 @@
 //! Intended to provide a high-level interface for rendering TouchWiz UI elements
 //! (home screens, widgets, notification panel, etc.) without full GPU emulation.
 
+#![allow(dead_code)]
+
 pub struct GraphicsBackend {
     // Future: window handle, surface, texture cache, etc.
 }
